@@ -8,13 +8,13 @@ import java.util.Map;
 
 @Data
 public class OpenWeatherRecord {
-    String name;
-    String weatherDescription;
-    Double temperature;
-    Long pressure;
-    Long humidity;
-    Long visibility;
-    Double windSpeed;
+    private String name;
+    private String weatherDescription;
+    private Double temperature;
+    private Long pressure;
+    private Long humidity;
+    private Long visibility;
+    private Double windSpeed;
 
     @JsonProperty("weather")
     private void unpackWeather(List<Weather> weathers) {

@@ -34,6 +34,7 @@ public class OpenWeatherWebClient {
                                 .humidity(record.getHumidity())
                                 .visibility(record.getVisibility())
                                 .windSpeed(record.getWindSpeed())
+                                .from("api")
                                 .build());
     }
 
