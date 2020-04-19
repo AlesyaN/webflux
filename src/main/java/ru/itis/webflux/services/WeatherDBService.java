@@ -3,6 +3,7 @@ package ru.itis.webflux.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.scheduler.Schedulers;
 import ru.itis.webflux.entries.WeatherEntry;
 import ru.itis.webflux.repositories.WeatherRepository;
 
@@ -27,6 +28,7 @@ public class WeatherDBService implements WeatherService {
                         .visibility(weather.getVisibility())
                         .windSpeed(weather.getWindSpeed())
                         .from("DB")
-                        .build()).collect(Collectors.toList()));
+                        .build()).collect(Collectors.toList()))
+                .subscribeOn(Schedulers.elastic());
     }
 }
